@@ -231,7 +231,7 @@ static int gsl_ts_read(struct i2c_client *client, u8 addr, u8 *pdata, unsigned i
     ret = gsl_ts_write(client, addr, NULL, 0);
     if (ret < 0)
     {
-        dev_err(&client->dev, "%s set data address fail!\n", __func__);
+//        dev_err(&client->dev, "%s set data address fail!\n", __func__);
         return ret;
     }
 
@@ -709,7 +709,7 @@ static void gslX680_ts_worker(struct work_struct *work)
     rc = gsl_ts_read(ts->client, 0x80, ts->touch_data, ts->dd->data_size);
     if (rc < 0)
     {
-        dev_err(&ts->client->dev, "read failed\n");
+//        dev_err(&ts->client->dev, "read failed\n");
         reset_chip(ts->client);
         startup_chip(ts->client);
         goto schedule;
