@@ -40,7 +40,7 @@
 	};
 
 	backlight: backlight {
-	    status = "disabled"; 
+	    status = "disabled";
 		compatible = "pwm-backlight";
 		pwms = <&pwm4 0 25000 0>;
 		brightness-levels = <
@@ -126,7 +126,7 @@
 		regulator-min-microvolt = <3800000>;
 		regulator-max-microvolt = <3800000>;
 	};
-	
+
 	vsys_1v8: vsys_1v8 {
 		compatible = "regulator-fixed";
 		regulator-name = "vcc3v8_sys";
@@ -300,7 +300,7 @@
 
 		//backlight = <&backlight>;
 		//power-supply=<&vcc_3v3>;
-		
+
 		enable-gpios = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
 
@@ -523,9 +523,9 @@
 		39 00 02 D2 63
 		39 00 02 D3 39
 		39 00 04 FF 98 81 00
-		15 78 02 11 00 
-		15 32 02 29 00 
-		15 00 02 35 00 
+		15 78 02 11 00
+		15 32 02 29 00
+		15 00 02 35 00
 		];
 		panel-exit-sequence = [
 			05 dc 01 28
@@ -537,7 +537,7 @@
 
 			timing0: timing0 {
 				clock-frequency = <65000000>;
-				hactive = <768>;   
+				hactive = <768>;
 				vactive = <1024>;
 
 				hsync-len = <4>;
@@ -870,12 +870,12 @@
                         /*ocv_table = <3400 3658 3677 3702 3729 3748 3763
                                      3777 3792 3810 3834 3869 3914 3955
                                      3988 4052 4093 4145 4199 4257 4327>;*/
-									 
+
 						ocv_table = <3400 3596 3667 3709 3733 3750 3760
 									 3770 3784 3803 3828 3866 3914 3955
 									 3996 4045 4083 4136 4199 4267 4359>;
 
-									 
+
                         design_capacity = <3100>;
                         design_qmax = <3179>;
                         bat_res = <193>;
@@ -888,14 +888,14 @@
                         monitor_sec = <5>;
                         sample_res = <10>;
                         virtual_power = <0>;
-						ntc_table = <68236 64990 61919 59011 56257 53649 51177 48834 46613 44505 42506 40599 38790 37072 35441 33892 32419 31020 29689 
-									 28423 27218 26076 24987 23950 22962 22021 21123 20266 19449 18669 17925 17213 16534 15885 15265 14673 14107 13566 
-									 13048 12554 12080 11628 11194 10779 10381 10000  9634  9283  8947 8624  8314  8018  7733  7460  7199  6947  6706 
-									  6475  6252  6039  5833  5635  5445  5262  5086  4916  4753  4597  4446  4300  4160  4026  3896  3771  3651  3535 
+						ntc_table = <68236 64990 61919 59011 56257 53649 51177 48834 46613 44505 42506 40599 38790 37072 35441 33892 32419 31020 29689
+									 28423 27218 26076 24987 23950 22962 22021 21123 20266 19449 18669 17925 17213 16534 15885 15265 14673 14107 13566
+									 13048 12554 12080 11628 11194 10779 10381 10000  9634  9283  8947 8624  8314  8018  7733  7460  7199  6947  6706
+									  6475  6252  6039  5833  5635  5445  5262  5086  4916  4753  4597  4446  4300  4160  4026  3896  3771  3651  3535
 									  3423  3315  3211  3111  3014	2922 2833	2748  2665  2586  2509  2435  2363  2294  2227
 									 >;
 						ntc_degree_from = <1 20>;
-						temperature_chrg_table_v2 = <(-20) 10 850 4300>, <22 33 1000 4300>, <43 70 0 0>; 
+						temperature_chrg_table_v2 = <(-20) 10 850 4300>, <22 33 1000 4300>, <43 70 0 0>;
                 };
 
 
@@ -931,11 +931,11 @@
 			status = "okay";
 		};
 	};
-	
+
 	usbc0: fusb302@22 {
         compatible = "fcs,fusb302";
         reg = <0x22>;
-        interrupt-parent = <&gpio0>; 
+        interrupt-parent = <&gpio0>;
         interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
         pinctrl-names = "default";
         pinctrl-0 = <&fusb0_int>;
@@ -985,7 +985,7 @@
 			interrupts = <RK_PC1 IRQ_TYPE_EDGE_FALLING>;
 			focaltech,irq-gpio = <&gpio0 RK_PC1 GPIO_ACTIVE_LOW>;
 
-			focaltech,max-touch-number = <10>;			
+			focaltech,max-touch-number = <10>;
 			focaltech,display-coords =  <0 0 1200 1600>;
 			wakeup-source;
 	};
@@ -1086,7 +1086,7 @@
 		status = "okay";
 		compatible = "galaxycore,gc05a2";
 		reg = <0x37>;
-		
+
 		clocks = <&cru CLK_CAM0_OUT>; //CLK_CIF_OUT  CLK_CAM0_OUT
 		clock-names = "xvclk";
 		power-domains = <&power RK3568_PD_VI>;
@@ -1108,12 +1108,12 @@
 			};
 		};
 	};*/
-	
+
 	gc2607: gc2607@37 {
 		status = "okay";
 		compatible = "galaxycore,gc2607";
 		reg = <0x37>;
-		
+
 		clocks = <&cru CLK_CAM0_OUT>; //CLK_CIF_OUT  CLK_CAM0_OUT
 		clock-names = "xvclk";
 		power-domains = <&power RK3568_PD_VI>;
@@ -1332,13 +1332,39 @@
 		};
 	};
 
-	fusb30x { // ���� FUSB302 �������жϺ� vbus gpio pinctrl 
+	fusb30x { // ���� FUSB302 �������жϺ� vbus gpio pinctrl
 			fusb0_int: fusb0-int {
 				rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
 				//<gpiox RK_Pxx RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 
+	emmc {
+		emmc_rstnout: emmc-rstnout {
+			rockchip,pins = <0x01 0x17 0x01 0x10b>;
+			phandle = <0x21b>;
+		};
+
+		emmc_bus8: emmc-bus8 {
+			rockchip,pins = <0x01 0x0c 0x01 0x10c 0x01 0x0d 0x01 0x10c 0x01 0x0e 0x01 0x10c 0x01 0x0f 0x01 0x10c 0x01 0x10 0x01 0x10c 0x01 0x11 0x01 0x10c 0x01 0x12 0x01 0x10c 0x01 0x13 0x01 0x10c>;
+			phandle = <0x21c>;
+		};
+
+		emmc_clk: emmc-clk {
+			rockchip,pins = <0x01 0x15 0x01 0x10c>;
+			phandle = <0x21d>;
+		};
+
+		emmc_cmd: emmc-cmd {
+			rockchip,pins = <0x01 0x14 0x01 0x10c>;
+			phandle = <0x21e>;
+		};
+
+		emmc_datastrobe: emmc-datastrobe {
+			rockchip,pins = <0x01 0x16 0x01 0x10b>;
+			phandle = <0x21f>;
+		};
+	};
 };
 
 &pmu_io_domains {
