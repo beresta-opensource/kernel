@@ -1262,13 +1262,13 @@ move_freelist_head(struct list_head *freelist, struct page *freepage)
 static void
 move_freelist_tail(struct list_head *freelist, struct page *freepage)
 {
-	LIST_HEAD(sublist);
+	struct page *page, *tmp;
 
-	if (!list_is_first(freelist, &freepage->lru)) {
-		list_cut_position(&sublist, freelist, &freepage->lru);
-		if (!list_empty(&sublist))
-			list_splice_tail(&sublist, freelist);
-	}
+    list_for_each_entry_safe(page, tmp, freelist, lru) {
+        if (page == freepage)
+            break;
+        list_move_tail(&page->lru, freelist);
+    }
 }
 
 static void
